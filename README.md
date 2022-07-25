@@ -16,7 +16,7 @@ jobs:
     steps: 
       - uses: actions/checkout@v2
       - name: Run Gitleaks
-        uses: franciscomoli/github-actions-gitleaks@v1.0.0
+        uses: franciscomoli/github-actions-gitleaks@main
         with:
           depth: 1
       - uses: github/codeql-action/upload-sarif@v1

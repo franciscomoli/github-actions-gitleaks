@@ -1,0 +1,21 @@
+name: Gitleaks Scan
+description: "Run Gitleaks"
+branding:
+  color: red
+  icon: activity
+inputs:
+  depth:
+    required: true
+    description: "Look behind depth"
+runs:
+  using: "docker"
+  image: "docker://zricethezav/gitleaks:v7.3.0"
+  args:
+    - gitleaks
+    - --depth=${{ inputs.depth }}
+    - --path
+    - .
+    - --redact
+    - -v
+    - --format=sarif
+    - --report=gitleaks.sarif
